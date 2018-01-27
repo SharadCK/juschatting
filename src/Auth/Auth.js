@@ -15,6 +15,7 @@ export default class Auth extends EventEmitter {
 
   userProfile;
 
+  //contructor needed to create user profile through Auth0
   constructor() {
     super();
     this.login = this.login.bind(this);
@@ -24,11 +25,11 @@ export default class Auth extends EventEmitter {
     this.getAccessToken = this.getAccessToken.bind(this);
     this.getProfile = this.getProfile.bind(this);
   }
-
+//login bla bla
   login() {
     this.auth0.authorize();
   }
-
+//function giving us access to redirect home
   handleAuthentication() {
     this.auth0.parseHash((err, authResult) => {
       console.log(err)
@@ -46,14 +47,12 @@ export default class Auth extends EventEmitter {
 
   setSession(authResult) {
     if (authResult && authResult.accessToken && authResult.idToken) {
-      // Set the time that the access token will expire at
       let expiresAt = JSON.stringify(
         authResult.expiresIn * 1000 + new Date().getTime()
       );
       localStorage.setItem('access_token', authResult.accessToken);
       localStorage.setItem('id_token', authResult.idToken);
       localStorage.setItem('expires_at', expiresAt);
-      // navigate to the home route
       history.replace('/home');
     }
   }
@@ -84,7 +83,6 @@ export default class Auth extends EventEmitter {
     localStorage.removeItem('expires_at');
     localStorage.clear()
     this.userProfile = null;
-    // navigate to the home route
     history.replace('/home');
   }
 

@@ -19,11 +19,12 @@ class Home extends Component {
             <div className="container">
               <div className="jumbotron">
 
-                <h1>Welcome to Chatting!</h1>
+                <h1>Welcome to your private chat!</h1>
+                <h3>We promise we won't store your conversations</h3>
                   {
                       !isAuthenticated() && (
                           <div>
-                            <p>We need you to sign in/sign up with Auth0 before you can access our chat.</p>
+                            <p>Please sign in/sign up with Auth0 before you can access to your private chat.</p>
                             <p><a className="btn btn-primary btn-lg" onClick={this.login.bind(this)}>Login</a></p>
                           </div>
                       )
@@ -31,7 +32,7 @@ class Home extends Component {
                   {
                       isAuthenticated() && (
                           <div>
-                            <p>Let's chat.</p>
+                            <p>It's chatting time!</p>
                             <Link className="btn btn-primary btn-lg" to="chat">Chat</Link>
                           </div>
                       )
