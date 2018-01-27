@@ -1,0 +1,28 @@
+.jumbotron{
+	background-color:#ceefe6;
+	margin-right:100px;
+	margin-left:50px;
+}
+.chat-container {
+    margin-top: 100px;
+   
+}
+.chatmessage-container {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    margin: 10px auto;
+    width: 350px;
+    border-style:outset;
+    display: table;
+    padding:2px;
+    margin-left:0px;
+    box-shadow: 5px 10px #888888
+
+}
+.message-box {
+    background-color: #4daee2;
+    padding: 10px;
+    border-bottom: 1px solid #cccccc;
+    margin-left:0px;
+
+}
